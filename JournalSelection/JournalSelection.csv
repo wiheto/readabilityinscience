@@ -1,0 +1,124 @@
+journal,search,journalID
+CA-CANCER J CLIN,CA-CANCER J CLIN[journal],0
+NEW ENGL J MED,NEW ENGL J MED[journal],1
+CHEM REV,CHEM REV[journal],2
+LANCET,LANCET[journal],3
+NAT BIOTECHNOL,NAT BIOTECHNOL[journal],4
+NATURE,NATURE[journal],5
+ANNU REV IMMUNOL,ANNU REV IMMUNOL[journal],6
+JAMA,JAMA[journal],7
+SCIENCE,SCIENCE[journal],8
+CELL,CELL[journal],9
+ANNU REV BIOCHEM,ANNU REV BIOCHEM[journal],10
+NAT GENET,NAT GENET[journal],11
+Adv Anat Embryol Cell Biol.,Adv Anat Embryol Cell Biol.[journal],12
+Dev Dyn.,Dev Dyn.[journal],13
+BIOL REV,BIOL REV[journal],14
+Philos Trans R Soc Lond B Biol Sci.,Philos Trans R Soc Lond B Biol Sci.[journal],15
+Annu Rev Cell Dev Biol.,Annu Rev Cell Dev Biol.[journal],16
+GENE DEV,GENE DEV[journal],17
+ENDOCR REV,ENDOCR REV[journal],18
+J PINEAL RES,J PINEAL RES[journal],19
+TRENDS ECOL EVOL,TRENDS ECOL EVOL[journal],20
+SYST BIOL,SYST BIOL[journal],21
+PHYSIOL REV,PHYSIOL REV[journal],22
+ANNU REV PHYSIOL,ANNU REV PHYSIOL[journal],23
+ANN INTERN MED,ANN INTERN MED[journal],24
+BMJ,BMJ[journal],25
+ARCH INTERN MED,ARCH INTERN MED[journal],26
+NAT MED,NAT MED[journal],27
+J CLIN INVEST,J CLIN INVEST[journal],28
+ANNU REV MED,ANNU REV MED[journal],29
+J EXP MED,J EXP MED[journal],30
+MOL ASPECTS MED,MOL ASPECTS MED[journal],31
+MOL THER,MOL THER[journal],32
+J ALLERGY CLIN IMMUN,J ALLERGY CLIN IMMUN[journal],33
+ALLERGY,ALLERGY[journal],34
+Clin Rev Allergy Immunol.,Clin Rev Allergy Immunol.[journal],35
+CLIN EXP ALLERGY,CLIN EXP ALLERGY[journal],36
+CONTACT DERMATITIS,CONTACT DERMATITIS[journal],37
+Pediatr Allergy Immunol.,Pediatr Allergy Immunol.[journal],38
+IMMUNITY,IMMUNITY[journal],39
+IMMUNOL REV,IMMUNOL REV[journal],40
+CLIN INFECT DIS,CLIN INFECT DIS[journal],41
+CLIN MICROBIOL REV,CLIN MICROBIOL REV[journal],42
+Microbiol Mol Biol Rev.,Microbiol Mol Biol Rev.[journal],43
+FEMS MICROBIOL REV,FEMS MICROBIOL REV[journal],44
+ANNU REV MICROBIOL,ANNU REV MICROBIOL[journal],45
+TRENDS MICROBIOL,TRENDS MICROBIOL[journal],46
+REV MED VIROL,REV MED VIROL[journal],47
+AIDS,AIDS[journal],48
+ADV VIRUS RES,ADV VIRUS RES[journal],49
+J VIROL,J VIROL[journal],50
+ANTIVIR RES,ANTIVIR RES[journal],51
+J VIRAL HEPATITIS,J Viral Hepat.[journal],52
+GENOME RES,GENOME RES[journal],53
+Mol Psychiatry,Mol Psychiatry[journal],54
+NAT CELL BIOL,NAT CELL BIOL[journal],55
+MOL CELL,MOL CELL[journal],56
+ANNU REV GENET,ANNU REV GENET[journal],57
+AM J HUM GENET,AM J HUM GENET[journal],58
+TRENDS COGN SCI,TRENDS COGN SCI[journal],59
+BEHAV BRAIN SCI,BEHAV BRAIN SCI[journal],60
+Neurosci Biobehav Rev.,Neurosci Biobehav Rev.[journal],61
+CORTEX,CORTEX[journal],62
+HORM BEHAV,HORM BEHAV[journal],63
+NEUROIMAGE,NEUROIMAGE[journal],64
+HUM BRAIN MAPP,HUM BRAIN MAPP[journal],65
+AM J NEURORADIOL,AM J NEURORADIOL[journal],66
+NEURORADIOLOGY,NEURORADIOLOGY[journal],67
+ANNU REV NEUROSCI,ANNU REV NEUROSCI[journal],68
+NAT NEUROSCI,NAT NEUROSCI[journal],69
+NEURON,NEURON[journal],70
+PHARMACOL REV,PHARMACOL REV[journal],71
+Adv Drug Deliv Rev.,Adv Drug Deliv Rev.[journal],72
+TRENDS PHARMACOL SCI,TRENDS PHARMACOL SCI[journal],73
+Pharmacol Ther.,Pharmacol Ther.[journal],74
+MED RES REV,MED RES REV[journal],75
+CLIN PHARMACOL THER,CLIN PHARMACOL THER[journal],76
+Environ Health Perspect.,Environ Health Perspect.[journal],77
+ARCH TOXICOL,ARCH TOXICOL[journal],78
+CRIT REV TOXICOL,CRIT REV TOXICOL[journal],79
+J Toxicol Environ Health B Crit Rev.,J Toxicol Environ Health B Crit Rev.[journal],80
+DRUGS,DRUGS[journal],81
+TOXICOL SCI,TOXICOL SCI[journal],82
+ARCH GEN PSYCHIAT,ARCH GEN PSYCHIAT[journal],83
+AM J PSYCHIAT,AM J PSYCHIAT[journal],84
+BIOL PSYCHIAT,BIOL PSYCHIAT[journal],85
+PSYCHOTHER PSYCHOSOM,PSYCHOTHER PSYCHOSOM[journal],86
+Schizophr Bull.,Schizophr Bull.[journal],87
+BRIT J PSYCHIAT,BRIT J PSYCHIAT[journal],88
+ANNU REV PSYCHOL,ANNU REV PSYCHOL[journal],89
+PSYCHOL BULL,PSYCHOL BULL[journal],90
+PSYCHOL REV,PSYCHOL REV[journal],91
+J Child Psychol Psychiatry,J Child Psychol Psychiatry[journal],92
+PSYCHOL MED,PSYCHOL MED[journal],93
+Health Technol Assess.,Health Technol Assess.[journal],94
+Health Aff (Millwood),Health Aff (Millwood)[journal],95
+STAT METHODS MED RES,STAT METHODS MED RES[journal],96
+J Am Med Inform Assoc.,J Am Med Inform Assoc.[journal],97
+Health Policy Plan.,Health Policy Plan.[journal],98
+J GEN INTERN MED,J GEN INTERN MED[journal],99
+Br J Gen Pract.,Br J Gen Pract.[journal],100
+AM FAM PHYSICIAN,AM FAM PHYSICIAN[journal],101
+FAM PRACT,FAM PRACT[journal],102
+CAN FAM PHYSICIAN,CAN FAM PHYSICIAN[journal],103
+Scand J Prim Health Care,Scand J Prim Health Care[journal],104
+FAM MED,FAM MED[journal],105
+AQUAT TOXICOL,AQUAT TOXICOL[journal],106
+BIOFOULING,BIOFOULING[journal],107
+MAR BIOTECHNOL,MAR BIOTECHNOL[journal],108
+MICROB ECOL,MICROB ECOL[journal],109
+TRENDS PLANT SCI,TRENDS PLANT SCI[journal],110
+ANNU REV PHYTOPATHOL,ANNU REV PHYTOPATHOL[journal],111
+PLANT CELL,PLANT CELL[journal],112
+CURR OPIN PLANT BIOL,CURR OPIN PLANT BIOL[journal],113
+J ANIM ECOL,J ANIM ECOL[journal],114
+J COMP NEUROL,J COMP NEUROL[journal],115
+ANIM BEHAV,ANIM BEHAV[journal],116
+DEV COMP IMMUNOL,DEV COMP IMMUNOL[journal],117
+Proc Natl Acad Sci U S A,Proc Natl Acad Sci U S A[journal],118
+ANN NY ACAD SCI,ANN NY ACAD SCI[journal],119
+SCI AM,SCI AM[journal],120
+Sci Eng Ethics.,Sci Eng Ethics.[journal],121
+BRAIN BEHAV IMMUN,BRAIN BEHAV IMMUN[journal],122
