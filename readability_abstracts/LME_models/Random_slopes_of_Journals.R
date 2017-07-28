@@ -90,11 +90,11 @@ FRE.Betas.journals.plot<-ggplot(data = randeff.dat.Journal,aes(x = Rank.betas.FR
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) 
   
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL2a.pdf'),plot = FRE.Betas.journals.plot,device = "pdf",width = 20/1.3,height = 10/1.3)
+ggsave(filename = paste0(path_plotOut,'/fig3-SUPPL1a.pdf'),plot = FRE.Betas.journals.plot,device = "pdf",width = 20/1.3,height = 10/1.3)
 
 #Write legend for FRE random slopes for each journal
 FRE.outLegend <- data.frame(Labels = randeff.dat.Journal$Label.betas.FRE,JournalNames=randeff.dat.Journal$JournalName)
-#xlsx::write.xlsx(x = FRE.outLegend,file = paste0(path_plotOut,'/table1_SUPPL2a_legend.pdf'),row.names = F)
+#xlsx::write.xlsx(x = FRE.outLegend,file = paste0(path_plotOut,'/fig3-SUPPL1a_legend.pdf'),row.names = F)
 
 #NDC: Plot each journal's random slope (with labels next to points mapping to a legend with all Journal-names)
 randeff.dat.Journal <- randeff.dat.Journal[order(randeff.dat.Journal$REbetas.NDC),] #sort NDC descending
@@ -118,11 +118,11 @@ NDC.Betas.journals.plot<-ggplot(data = randeff.dat.Journal,aes(x = Rank.betas.ND
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) 
 
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL2b.pdf'),plot = NDC.Betas.journals.plot,device = "pdf",width = 20/1.3,height = 10/1.3)
+ggsave(filename = paste0(path_plotOut,'/fig3-SUPPL1b.pdf'),plot = NDC.Betas.journals.plot,device = "pdf",width = 20/1.3,height = 10/1.3)
 
 #Write legend for FRE random slopes for each journal
 NDC.outLegend <- data.frame(Labels = randeff.dat.Journal$Label.betas.NDC,JournalNames=randeff.dat.Journal$JournalName)
-#xlsx::write.xlsx(x = NDC.outLegend,file = paste0(path_plotOut,'/table1_SUPPL2b_legend.pdf'),row.names = F)
+#xlsx::write.xlsx(x = NDC.outLegend,file = paste0(path_plotOut,'/fig3-SUPPL1b_legend.pdf'),row.names = F)
 
 
 ######################################
@@ -143,7 +143,7 @@ RE.summary.Field<-randeff.dat.Field %>%
             nBetas.NDC = length(REbetas.NDC))
 
 #Write FRE-NDC-Journal/Field data
-#write.csv(x = RE.summary.Field,file = paste0(path_dataOut,'/Table1_supplement-fig1ab_field_slopes_summary.csv'),row.names = F)
+#write.csv(x = RE.summary.Field,file = paste0(path_dataOut,'/fig3_ab_field_slopes_summary.csv'),row.names = F)
 
 RE.summary.Field$Field<- as.character(RE.summary.Field$Field)
 RE.summary.Field$Field[RE.summary.Field$Field=='Molecular Biology, Genetics & Biochemistry']<-'Molecular Biology,\nGenetics & Biochemistry'
@@ -163,8 +163,7 @@ FRE.Betas.fields.plot<-ggplot(data = RE.summary.Field,aes(x = Rank.betas.FRE, y 
         axis.title.x=element_blank(),
         axis.text.x = element_text(angle = 45, hjust = 1)) 
 
-#ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1a.pdf'),plot = FRE.Betas.fields.plot,device = "pdf",width = 16,height = 16/1.618,units = "cm")
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1a.svg'),plot = FRE.Betas.fields.plot,device = svg,width = 16,height = 16/1.618,units = "cm")
+ggsave(filename = paste0(path_plotOut,'/fig3a.svg'),plot = FRE.Betas.fields.plot,device = svg,width = 16,height = 16/1.618,units = "cm")
 
 
 #Plot NDC
@@ -182,8 +181,7 @@ NDC.Betas.fields.plot<-ggplot(data = RE.summary.Field,aes(x = Rank.betas.NDC, y 
         axis.title.x=element_blank(),
         axis.text.x = element_text(angle = 45, hjust = 1)) 
  
-#ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1b.pdf'),plot = NDC.Betas.fields.plot,device = "pdf",width = 16,height = 16/1.618,units = "cm")
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1b.svg'),plot = NDC.Betas.fields.plot,device = svg,width = 16,height = 16/1.618,units = "cm")
+ggsave(filename = paste0(path_plotOut,'/fig3b.svg'),plot = NDC.Betas.fields.plot,device = svg,width = 16,height = 16/1.618,units = "cm")
 
 
 #Extract legend
@@ -201,5 +199,4 @@ Legend.plot<-cowplot::get_legend(Legend.plot)
  
 legend.out<-cowplot::plot_grid(Legend.plot)
 
-#ggsave(filename = paste0(path_plotOut,'/table1_SUPPL_legend_to_1a_1b.pdf'),plot = legend.out,device = "pdf",width = 16,height = 16/1.618,units = "cm")
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL_legend_to_1a_1b.svg'),plot = legend.out,device = svg,width = 16,height = 16/1.618,units = "cm")
+ggsave(filename = paste0(path_plotOut,'/fig3_legend_to_1a_1b.svg'),plot = legend.out,device = svg,width = 16,height = 16/1.618,units = "cm")
