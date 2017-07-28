@@ -163,7 +163,9 @@ FRE.Betas.fields.plot<-ggplot(data = RE.summary.Field,aes(x = Rank.betas.FRE, y 
         axis.title.x=element_blank(),
         axis.text.x = element_text(angle = 45, hjust = 1)) 
 
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1a.pdf'),plot = FRE.Betas.fields.plot,device = "pdf",width = 16,height = 16/1.618,units = "cm")
+#ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1a.pdf'),plot = FRE.Betas.fields.plot,device = "pdf",width = 16,height = 16/1.618,units = "cm")
+ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1a.svg'),plot = FRE.Betas.fields.plot,device = svg,width = 16,height = 16/1.618,units = "cm")
+
 
 #Plot NDC
 RE.summary.Field <- RE.summary.Field[order(RE.summary.Field$meanBeta.NDC),]
@@ -180,7 +182,9 @@ NDC.Betas.fields.plot<-ggplot(data = RE.summary.Field,aes(x = Rank.betas.NDC, y 
         axis.title.x=element_blank(),
         axis.text.x = element_text(angle = 45, hjust = 1)) 
  
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1b.pdf'),plot = NDC.Betas.fields.plot,device = "pdf",width = 16,height = 16/1.618,units = "cm")
+#ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1b.pdf'),plot = NDC.Betas.fields.plot,device = "pdf",width = 16,height = 16/1.618,units = "cm")
+ggsave(filename = paste0(path_plotOut,'/table1_SUPPL1b.svg'),plot = NDC.Betas.fields.plot,device = svg,width = 16,height = 16/1.618,units = "cm")
+
 
 #Extract legend
 
@@ -197,4 +201,5 @@ Legend.plot<-cowplot::get_legend(Legend.plot)
  
 legend.out<-cowplot::plot_grid(Legend.plot)
 
-ggsave(filename = paste0(path_plotOut,'/table1_SUPPL_legend_to_1a_1b.pdf'),plot = legend.out,device = "pdf",width = 16,height = 16/1.618,units = "cm")
+#ggsave(filename = paste0(path_plotOut,'/table1_SUPPL_legend_to_1a_1b.pdf'),plot = legend.out,device = "pdf",width = 16,height = 16/1.618,units = "cm")
+ggsave(filename = paste0(path_plotOut,'/table1_SUPPL_legend_to_1a_1b.svg'),plot = legend.out,device = svg,width = 16,height = 16/1.618,units = "cm")
