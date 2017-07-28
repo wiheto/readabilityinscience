@@ -43,8 +43,8 @@ ax.set_ylim([0,1])
 ax.set_xlim([1880,2016])
 
 fig.legend(handles=stack,labels=np.arange(1,11))
-fig.savefig('./figures/fig4a.png')
-fig.savefig('./figures/fig4a.eps')
+fig.savefig('./figures/fig5a.png')
+fig.savefig('./figures/fig5a.eps')
 
 fig,ax = plt.subplots(1,1,figsize=(16, 3),dpi=600)
 
@@ -66,8 +66,8 @@ ax.set_ylabel('Number of articles',rotation=90)
 ax.set_ylabel('Year')
 fig.colorbar(pc1,ax=ax)
 
-fig.savefig('./figures/fig4c.png')
-fig.savefig('./figures/fig4c.eps')
+fig.savefig('./figures/fig5c.png')
+fig.savefig('./figures/fig5c.eps')
 
 
 
@@ -91,4 +91,4 @@ ax.set_xlabel('Year')
 ax.set_ylabel('Number of authors',rotation=90)
 fig.colorbar(pc1,ax=ax)
 
-fig.savefig('./supplementarymaterial/fig4c-supplement_nr-authors-years-ndc.eps')
+fig.savefig('./figures/fig5c-suppl1.pdf')

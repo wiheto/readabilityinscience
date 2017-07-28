@@ -1,6 +1,6 @@
 wdparts <- strsplit(getwd(), '/')[[1]]
 rispart <- which(wdparts=='readabilityinscience')
-if(length(rispart)==0) stop("Unable to find a 'readabilityinscience' main project 
+if(length(rispart)==0) stop("Unable to find a 'readabilityinscience' main project
                             folder in current working directory path")
 risdir <- paste(wdparts[1:rispart], collapse = '/')
 setwd(risdir)
@@ -50,26 +50,23 @@ write.csv(authorPlot, './data/abstracts/nrAuthors_Flesch_NDC.csv', row.names = F
 
 # Make Violin Plots
 
-Flesch_violin <- ggplot(authorPlot, aes(x=nrAuthors, y=Flesch)) + 
+Flesch_violin <- ggplot(authorPlot, aes(x=nrAuthors, y=Flesch)) +
   geom_violin(alpha=0.5, aes(fill=nrAuthors, colour=nrAuthors)) +
   stat_summary(fun.y=median, geom="point", size=1.5, color="black", shape=21) +
-  ggthemes::theme_base() + 
-  xlab("Number of Authors") + ylab('Readability (FRE)') + 
+  ggthemes::theme_base() +
+  xlab("Number of Authors") + ylab('Readability (FRE)') +
   theme(legend.position="none")
 
-NDC_violin <- ggplot(authorPlot, aes(x=nrAuthors, y=NDC)) + 
+NDC_violin <- ggplot(authorPlot, aes(x=nrAuthors, y=NDC)) +
   geom_violin(alpha=0.5, aes(fill=nrAuthors, colour=nrAuthors)) +
   stat_summary(fun.y=median, geom="point", size=1.5, color="black", shape=21) +
-  ggthemes::theme_base() + 
-  xlab("Number of Authors") + ylab('Readability (NDC)') + 
+  ggthemes::theme_base() +
+  xlab("Number of Authors") + ylab('Readability (NDC)') +
   theme(legend.position="none")
 
 
 # Save Violin Plots
 
-ggsave('./figures/fig4b.svg', Flesch_violin, height = 145, width = 302, units = 'mm')
+ggsave('./figures/fig5b.svg', Flesch_violin, height = 145, width = 302, units = 'mm')
 
-ggsave('./figures/fig4b_SUPPL.svg', NDC_violin, height = 145, width = 302, units = 'mm')
-  
-  
-  
+ggsave('./figures/fig5b_SUPPL.svg', NDC_violin, height = 145, width = 302, units = 'mm')
