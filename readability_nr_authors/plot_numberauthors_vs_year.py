@@ -67,7 +67,7 @@ ax.set_ylabel('Year')
 fig.colorbar(pc1,ax=ax)
 
 fig.savefig('./figures/fig5c.png')
-fig.savefig('./figures/fig5c.eps')
+fig.savefig('./figures/fig5c.pdf')
 
 
 
