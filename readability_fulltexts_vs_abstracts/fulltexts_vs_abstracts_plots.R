@@ -85,32 +85,32 @@ cor.test(df_full$flesch_abstracts, df_full$flesch_fulltexts, method = "pearson")
 cor.test(df_full$NDC_abstracts, df_full$NDC_fulltexts, method = "pearson")
 
 # Journal specific correlations
-cor.test(df_full$flesch_abstracts[df_full$journal=="BMC_Biol"], 
+cor.test(df_full$flesch_abstracts[df_full$journal=="BMC_Biol"],
          df_full$flesch_fulltexts[df_full$journal=="BMC_Biol"], method = "pearson")
 cor.test(df_full$NDC_abstracts[df_full$journal=="BMC_Biol"],
          df_full$NDC_fulltexts[df_full$journal=="BMC_Biol"], method = "pearson")
 
-cor.test(df_full$flesch_abstracts[df_full$journal=="eLife"], 
+cor.test(df_full$flesch_abstracts[df_full$journal=="eLife"],
          df_full$flesch_fulltexts[df_full$journal=="eLife"], method = "pearson")
 cor.test(df_full$NDC_abstracts[df_full$journal=="eLife"],
          df_full$NDC_fulltexts[df_full$journal=="eLife"], method = "pearson")
 
-cor.test(df_full$flesch_abstracts[df_full$journal=="Genome_Biol"], 
+cor.test(df_full$flesch_abstracts[df_full$journal=="Genome_Biol"],
          df_full$flesch_fulltexts[df_full$journal=="Genome_Biol"], method = "pearson")
 cor.test(df_full$NDC_abstracts[df_full$journal=="Genome_Biol"],
          df_full$NDC_fulltexts[df_full$journal=="Genome_Biol"], method = "pearson")
 
-cor.test(df_full$flesch_abstracts[df_full$journal=="PLoS_Biol"], 
+cor.test(df_full$flesch_abstracts[df_full$journal=="PLoS_Biol"],
          df_full$flesch_fulltexts[df_full$journal=="PLoS_Biol"], method = "pearson")
 cor.test(df_full$NDC_abstracts[df_full$journal=="PLoS_Biol"],
          df_full$NDC_fulltexts[df_full$journal=="PLoS_Biol"], method = "pearson")
 
-cor.test(df_full$flesch_abstracts[df_full$journal=="PLoS_Med"], 
+cor.test(df_full$flesch_abstracts[df_full$journal=="PLoS_Med"],
          df_full$flesch_fulltexts[df_full$journal=="PLoS_Med"], method = "pearson")
 cor.test(df_full$NDC_abstracts[df_full$journal=="PLoS_Med"],
          df_full$NDC_fulltexts[df_full$journal=="PLoS_Med"], method = "pearson")
 
-cor.test(df_full$flesch_abstracts[df_full$journal=="PLoS_ONE"], 
+cor.test(df_full$flesch_abstracts[df_full$journal=="PLoS_ONE"],
          df_full$flesch_fulltexts[df_full$journal=="PLoS_ONE"], method = "pearson")
 cor.test(df_full$NDC_abstracts[df_full$journal=="PLoS_ONE"],
          df_full$NDC_fulltexts[df_full$journal=="PLoS_ONE"], method = "pearson")
@@ -123,8 +123,8 @@ cor.test(df_full$NDC_abstracts[df_full$journal=="PLoS_ONE"],
 setwd(paste0(getwd(), '/figures'))
 
 # Set minimum axis limits to 99% of the data
-limits_flesch <- percdata_lim(df_full$flesch_abstracts, 
-                              df_full$flesch_fulltexts, ylo.start = -20, 
+limits_flesch <- percdata_lim(df_full$flesch_abstracts,
+                              df_full$flesch_fulltexts, ylo.start = -20,
                               yhi.start = 50, xlo.start = -30, xhi.start = 50,
                               perc = 99)
 
@@ -139,7 +139,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts ~ df_full$flesch_
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts, df_full$flesch_fulltexts, nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts, df_full$flesch_fulltexts, nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -155,8 +155,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg('fig3b.svg', width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts, df_full$flesch_fulltexts, nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg('fig4b.svg', width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts, df_full$flesch_fulltexts, nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -173,9 +173,9 @@ labels <- abslabels
 my.colors <- colorRampPalette(viridis::viridis(n = 1000, option = 'inferno'))
 z <- matrix(1:100, nrow=1)
 x <- 1
-y <- seq(0,colourcap^0.25, len=100) 
+y <- seq(0,colourcap^0.25, len=100)
 
-svg('colourbar_fig3_and_suppl.svg', width = 2, height = 7, antialias = c("gray"))
+svg('colourbar_fig4_and_suppl.svg', width = 2, height = 7, antialias = c("gray"))
 image(x,y,z,col = my.colors(100), axes=FALSE, xlab="", ylab="", useRaster = T)
 axis(2, at = positions, labels = labels)
 dev.off()
@@ -196,7 +196,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts ~ df_full$NDC_abstracts)
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts, df_full$NDC_fulltexts, nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts, df_full$NDC_fulltexts, nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -207,8 +207,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg('fig3_suppl1.svg', width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts, df_full$NDC_fulltexts, nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg('fig4_suppl1.svg', width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts, df_full$NDC_fulltexts, nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
@@ -243,7 +243,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts[df_full$journal==
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -257,8 +257,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg(paste0('fig3_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -279,7 +279,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts[df_full$journal==journal] ~ df_full$NDC_abstracts[df_full$journal==journal])
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                      colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                      xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -291,8 +291,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg(paste0('fig3_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
@@ -321,7 +321,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts[df_full$journal==
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -335,8 +335,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg(paste0('fig3_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -357,7 +357,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts[df_full$journal==journal] ~ df_full$NDC_abstracts[df_full$journal==journal])
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                      colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                      xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -368,8 +368,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg(paste0('fig3_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
@@ -399,7 +399,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts[df_full$journal==
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -413,8 +413,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg(paste0('fig3_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -435,7 +435,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts[df_full$journal==journal] ~ df_full$NDC_abstracts[df_full$journal==journal])
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                      colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                      xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -446,8 +446,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg(paste0('fig3_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
@@ -476,7 +476,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts[df_full$journal==
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -490,8 +490,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg(paste0('fig3_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -512,7 +512,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts[df_full$journal==journal] ~ df_full$NDC_abstracts[df_full$journal==journal])
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                      colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                      xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -523,8 +523,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg(paste0('fig3_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
@@ -553,7 +553,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts[df_full$journal==
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -567,8 +567,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg(paste0('fig3_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -589,7 +589,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts[df_full$journal==journal] ~ df_full$NDC_abstracts[df_full$journal==journal])
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                      colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                      xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -600,8 +600,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg(paste0('fig3_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
@@ -630,7 +630,7 @@ abstracts_fulltexts_line_flesch <- lm(df_full$flesch_fulltexts[df_full$journal==
 
 ### Extract max value for smoothScatter for the colour bar
 
-densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+densout <- smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
                                  colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                  xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts')
 
@@ -644,8 +644,8 @@ colourend <- (densout$max^0.25) / colourcap^0.25
 
 # SVG
 
-svg(paste0('fig3_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_flesch.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$flesch_abstracts[df_full$journal==journal], df_full$flesch_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_flesch$xlim[1], limits_flesch$xlim[2]), ylim = c(limits_flesch$ylim[1], limits_flesch$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend, option = 'inferno')), nrpoints = 0,
               xlab='Readability (FRE) Abstracts', ylab='Readability (FRE) Fulltexts',
               useRaster = TRUE)
@@ -666,7 +666,7 @@ limits_NDC$ylim[2] <- 15.6
 # Regression line
 abstracts_fulltexts_line_NDC <- lm(df_full$NDC_fulltexts[df_full$journal==journal] ~ df_full$NDC_abstracts[df_full$journal==journal])
 
-densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+densout_NDC <- smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
                                      colramp = colorRampPalette(viridis::viridis(n = 1000, option = 'inferno')), nrpoints = 0,
                                      xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts')
 
@@ -677,8 +677,8 @@ colourcap^0.25 / (densout_NDC$max^0.25)
 colourend_NDC <- (densout_NDC$max^0.25) / colourcap^0.25
 
 # SVG
-svg(paste0('fig3_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
-smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]), 
+svg(paste0('fig4_suppl2_', journal, '_NDC.svg'), width = 7, height = 7, antialias = c("gray"))
+smoothScatter_densout(df_full$NDC_abstracts[df_full$journal==journal], df_full$NDC_fulltexts[df_full$journal==journal], nbin = 128, xlim = c(limits_NDC$xlim[1], limits_NDC$xlim[2]), ylim = c(limits_NDC$ylim[1], limits_NDC$ylim[2]),
               colramp = colorRampPalette(viridis::viridis(n = 1000, end = colourend_NDC, option = 'inferno')), nrpoints = 0,
               xlab='Readability (NDC) Abstracts', ylab='Readability (NDC) Fulltexts',
               useRaster = TRUE)
