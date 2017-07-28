@@ -144,4 +144,4 @@ for i in range(0,3):
         n+=1
 fig.tight_layout()
 
-fig.savefig('./figures/fig5b.pdf',format='pdf',dpi=600)
+fig.savefig('./figures/fig6b.pdf',format='pdf',dpi=600)

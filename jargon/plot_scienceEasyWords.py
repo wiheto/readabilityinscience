@@ -35,8 +35,8 @@ ax.scatter(datavg.year, datavg.science2949, data=datavg, color='g')
 ax.grid(True)
 ax.set_xlim([1880,2020])
 fig.savefig('./jargon/easywords_combined.pdf')
-fig.savefig('./figures/fig5a.pdf')
-fig.savefig('./figures/fig5a.png')
+fig.savefig('./figures/fig6a.pdf')
+fig.savefig('./figures/fig6a.png')
 
 
 rc=sps.pearsonr(datavg.year,datavg.classic2949)
