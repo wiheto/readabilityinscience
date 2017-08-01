@@ -37,6 +37,8 @@ Output:
 from multiprocessing import Pool
 from functools import partial
 import os
+import sys
+sys.path.append('../')
 
 from readability_fulltexts_vs_abstracts import parse_fulltexts as pf
 from readability_fulltexts_vs_abstracts import analyze_fulltexts as af
