@@ -1,5 +1,5 @@
 #########################################################################
-#         Plotting script (Fig. 3b + Supplementaries to Fig. 3)         #
+#         Plotting script (Fig. 4b + Supplementaries to Fig. 4)         #
 #########################################################################
 
 #####################################
@@ -117,7 +117,7 @@ cor.test(df_full$NDC_abstracts[df_full$journal=="PLoS_ONE"],
 
 
 #####################################
-# Fig. 3b (FRE)
+# Fig. 4b (FRE)
 #####################################
 
 setwd(paste0(getwd(), '/figures'))
@@ -182,7 +182,7 @@ dev.off()
 
 
 #####################################
-# Fig. 3 SUPPL1 (NDC)
+# Fig. 4 SUPPL1 (NDC)
 #####################################
 
 limits_NDC <- percdata_lim(df_full$NDC_abstracts, df_full$NDC_fulltexts, ylo.start = 5, yhi.start = 20, xlo.start = 5, xhi.start = 20, perc = 99)
@@ -221,7 +221,7 @@ length(df_full$NDC_fulltexts[df_full$NDC_abstracts<14 & df_full$NDC_abstracts>11
 
 
 #####################################
-# Fig. for individual journals (Fig. 3 SUPPL2)
+# Fig. for individual journals (Fig. 4 SUPPL2)
 #####################################
 
 #####################################
