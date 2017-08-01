@@ -196,8 +196,9 @@ def combine_others_one(statsDir):
 
     """
 
-    print("Combining everything into one final output dataframe")
     import pandas as pd
+
+    print("Combining everything into one final output dataframe")
 
     df_others = pd.read_json(statsDir + 'others.json')
     df_plos = pd.read_json(statsDir + 'PLoS_ONE.json')

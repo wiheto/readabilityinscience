@@ -32,7 +32,7 @@ source('./functions/percdata_lim.R')
 if(file.exists('./data/fulltexts/stats/all_fulltextabstract_NDC_Flesch_year.csv')) {
         df_full <- read.csv('./data/fulltexts/stats/all_fulltextabstract_NDC_Flesch_year.csv')
 } else {
-        df_full <- read.csv('./data/fulltexts/stats/Figure3_SourceData1.csv')
+        df_full <- read.csv('./data/fulltexts/stats/Figure4_SourceData1.csv')
 }
 
 # Rename columns

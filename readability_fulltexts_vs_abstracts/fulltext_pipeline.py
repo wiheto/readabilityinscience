@@ -3,7 +3,7 @@
 
 --- Main fulltext processing pipeline ---
 
-Be aware: Replicating the whole pipeline can take 16++ hours, depending on number of processors assigned, setting 5+
+Be aware: Running the whole pipeline can take 16++ hours, depending on number of processors assigned, setting 5+
 processors is beneficial
 
 General prerequisites:
@@ -20,16 +20,17 @@ Processing steps:
     1) Download PMC Open Access Subset: https://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/
     2) Either download abstracts separately for the journals to be analyzed (using get_pubmeddata from
        dataminingfunctions) or extract them from the fulltexts directly
-    3) Put fulltext textfiles into subfolders for each journal in ../data/fulltextdata/***
-       and the abstracts file ("searchresults") into ../data/fulltextdata/abstracts/*** with
+    3) Put fulltext textfiles into subfolders for each journal in ../data/fulltexts/*** (where *** are the ftJournals
+       names below) and the abstracts file ("searchresults") into ../data/fulltexts/abstracts/*** with
        subfolders "/id_article/abstracttext_pubdate_year_pmid_articletitle_journal_title_keyword_doi/searchresults"
-    4) Make sure that provided doi -> pmid matching .csvs are in basePath/ids/ (default ../data/fulltextdata/ids/) to
+       (where *** are the abstractsJournals names specified below)
+    4) Make sure that provided doi -> pmid matching .csvs are in basePath/ids/ (default ../data/fulltexts/ids/) to
        reproduce our analysis, otherwise ID matching can also be done by calling the Pubmed API, check convert_id.py
     5) Set numProc parameter to number of processors to be assigned to the task (default is 4,
        but 5+ is recommended if possible)
 
 Output:
-    .json and .csv dataframes in statsDir (default ../stats/fulltext/)
+    .json and .csv dataframes in statsDir (default output path is "../data/fulltexts/stats/")
 
 """
 
@@ -55,7 +56,7 @@ idPath = basePath + 'ids/'
 
 ftJournals = ['BMC_Biol', 'eLife', 'Genome_Biol', 'PLoS_Med', 'PLoS_Biol']
 abstractJournalsOthers = ['bmc_biol[journal]', 'elife[journal]', 'genome_biol[journal]',
-                          'plos_med[journal]', 'plos_biol[journal]',]
+                          'plos_med[journal]', 'plos_biol[journal]']
 abstractJournalONE = 'plos_one[journal]'
 
 # For id conversion at Pubmed (not necessary with defaults if doi -> pmid csv mappings exist)
