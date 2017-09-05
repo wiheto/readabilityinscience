@@ -1,8 +1,6 @@
 # readabilityinscience
 
-Preprint article: http://biorxiv.org/content/early/2017/03/22/119370
-
-Article status: currently under review. The code in the repo is for the latest version of the article. 
+Article published in elife: https://elifesciences.org/articles/27725
 
 Code is written in Python and R.
 
