@@ -17,3 +17,4 @@ protobuf==3.15.5
 pyOpenSSL==20.0.1
 treetaggerwrapper==2.3
 wincertstore==0.2
+treetaggerwrapper

@@ -1,5 +1,15 @@
-def convert_id(df, id_in, id_out, chunklength, timer, load_loc, save_loc=None, load_pmid=True,
-               mail_ad='placeholder', tool='id_converter'):
+def convert_id(
+    df,
+    id_in,
+    id_out,
+    chunklength,
+    timer,
+    load_loc,
+    save_loc=None,
+    load_pmid=True,
+    mail_ad="placeholder",
+    tool="id_converter",
+):
     """
     Function to convert between doi, pmid (and PMC) either using prespecified mappings or using the PubMed API
 
@@ -25,7 +35,13 @@ def convert_id(df, id_in, id_out, chunklength, timer, load_loc, save_loc=None, l
     import pandas as pd
     import numpy as np
 
-    pubmedURL = 'https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/?tool=' + tool + '&email=' + mail_ad + '&ids='
+    pubmedURL = (
+        "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/?tool="
+        + tool
+        + "&email="
+        + mail_ad
+        + "&ids="
+    )
 
     # Format changes
     try:
@@ -42,51 +58,67 @@ def convert_id(df, id_in, id_out, chunklength, timer, load_loc, save_loc=None, l
     # If there is a location for a csv dataframe with doi -> pmid mappings
     if load_pmid:
         df_mappings = pd.read_csv(load_loc)
-        df_final = pd.merge(df, df_mappings, on=id_in, how='inner')  # or "left"?
+        df_final = pd.merge(df, df_mappings, on=id_in, how="inner")  # or "left"?
         print("Number of final dataframe entries: " + str(len(df_final)))
 
     else:
-        print("Could not find .csv with doi -> pmid mappings, retrieving mappings from Pubmed")
+        print(
+            "Could not find .csv with doi -> pmid mappings, retrieving mappings from Pubmed"
+        )
         # need to remove NaNs because the pubmed API does not accept these requests
         df_nonna = df[~df[str(id_in)].isnull()].reset_index()
         dois_to_convert = df_nonna[str(id_in)].values
         # Split into evenly sized chunks
-        doi_chunked = [dois_to_convert[i:i+chunklength] for i in range(0, len(dois_to_convert), chunklength)]
+        doi_chunked = [
+            dois_to_convert[i : i + chunklength]
+            for i in range(0, len(dois_to_convert), chunklength)
+        ]
 
         original_list = []
         response_list = []
 
         for i in range(0, len(doi_chunked)):
-            cur_request = pubmedURL + str(",".join(doi_chunked[i])) + '&format=json'
+            cur_request = pubmedURL + str(",".join(doi_chunked[i])) + "&format=json"
             response = requests.get(cur_request)
             json_data = response.json()
 
             for j in range(0, len(doi_chunked[i])):
                 try:
-                    original_list.append(json_data['records'][j][str(id_in)])
+                    original_list.append(json_data["records"][j][str(id_in)])
                 except:
                     original_list.append(np.nan)
                     print("Problem in input ID")
                 try:
-                    response_list.append(json_data['records'][j][str(id_out)])
+                    response_list.append(json_data["records"][j][str(id_out)])
                 except:
                     response_list.append(np.nan)
                     try:
-                        print("Problem in conversion - input ID was " + str(json_data['records'][j][str(id_in)]))
+                        print(
+                            "Problem in conversion - input ID was "
+                            + str(json_data["records"][j][str(id_in)])
+                        )
                     except:
                         print("Problem in conversion - no input ID?")
 
-            print('Waiting ' + str(timer) + ' seconds, about ' + str((len(doi_chunked)-i) * timer) + ' seconds left.')
+            print(
+                "Waiting "
+                + str(timer)
+                + " seconds, about "
+                + str((len(doi_chunked) - i) * timer)
+                + " seconds left."
+            )
             time.sleep(timer)
 
         # Make dataframe
-        df_responselist = pd.DataFrame({str(id_in) : original_list, str(id_out) : response_list})
+        df_responselist = pd.DataFrame(
+            {str(id_in): original_list, str(id_out): response_list}
+        )
 
         # Save this dataframe for reproducibility
         if save_loc:
             df_responselist.to_csv(save_loc, index=False)
 
         # Recombine with original input df
-        df_final = pd.merge(df, df_responselist, on=str(id_in), how='outer')
+        df_final = pd.merge(df, df_responselist, on=str(id_in), how="outer")
 
     return df_final
