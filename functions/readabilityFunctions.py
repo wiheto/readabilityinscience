@@ -19,10 +19,12 @@ import numpy as np
 import treetaggerwrapper
 import functions.abstract_cleanup as qc
 import os
+from nltk.tag.perceptron import PerceptronTagger
+tagger = PerceptronTagger(load=False)
 
 
 d = cmudict.dict()
-tagger = treetaggerwrapper.TreeTagger(TAGLANG="en")
+#tagger = treetaggerwrapper.TreeTagger(TAGLANG="en")
 
 # Load easy word list
 easywordpath = os.path.join(os.path.dirname(__file__), "NDCeasywords.txt")
