@@ -19,9 +19,6 @@ jobs:
       - run:
           name: more install
           command:  sudo pip install nltk; sudo python setup.py install;
-      - run:
-          name: install coveralls
-          command: pip install coverage
 
 workflows:
   main:
