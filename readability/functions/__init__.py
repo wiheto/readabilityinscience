@@ -1,4 +1,4 @@
-import readabilityFunctions
-import abstract_cleanup
-import convert_id
-import dataminingfunctions 
+import readability.functions.readabilityFunctions
+import readability.functions.abstract_cleanup
+import readability.functions.convert_id
+import readability.functions.dataminingfunctions
