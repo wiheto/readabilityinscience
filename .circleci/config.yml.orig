@@ -1,0 +1,63 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
+
+      - run: 
+          name: "Setup custom environment variables"
+          command: echo 'export MY_ENV_VAR="CIRCLE"' >> $BASH_ENV
+      - run: # print the name of the branch we're on
+<<<<<<< HEAD
+
+          name: "What branch am I on?"
+          command: echo ${CIRCLE_BRANCH}
+
+=======
+          command: echo ${CIRCLE_BRANCH}
+          name: "What branch am I on?"
+>>>>>>> f6663c6d903e3f83df13e1da7f00206a1162cc06
+      - run:      
+          command: sudo bash install/gecko_install.sh; sudo pip install -r requirements.txt;
+          name: install
+      - run: 
+          name: more install
+<<<<<<< HEAD
+          command:  sudo pip install nltk; sudo python setup.py install; 
+
+      - run:
+          name: scrape check
+          command: python unit_test/scrape_test.py 
+
+  build-docker:
+    machine: true
+    steps:
+      - checkout
+
+=======
+          command: sudo python setup.py install; 
+
+  build-docker:
+    machine: true
+    steps:
+      - checkout
+      # start proprietary DB using private Docker image
+      # with credentials stored in the UI
+      # build the application image
+>>>>>>> f6663c6d903e3f83df13e1da7f00206a1162cc06
+      - run: docker build -t wcp .
+      - run: docker run -d -p 127.0.0.1:80:80 --name wcp wcp
+      - run: docker ps | grep -q wcp
+workflows:
+  main:
+    jobs:
+      - build-and-test
+      - build-docker

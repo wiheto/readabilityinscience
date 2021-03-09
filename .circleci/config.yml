@@ -1,0 +1,29 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
+
+      - run:
+          name: "Setup custom environment variables"
+          command: echo 'export MY_ENV_VAR="CIRCLE"' >> $BASH_ENV
+
+      - run:
+          name: more install
+          command:  sudo pip install nltk; sudo python setup.py install;
+      - run:
+          name: install coveralls
+          command: pip install coverage
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
