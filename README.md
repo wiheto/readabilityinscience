@@ -16,9 +16,6 @@ For python (3.x) is compatibility fixes may be needed.
 ```
 git clone wiheto/readabilityinscience.git
 cd readabilityinscience
-
-```
-```
 which python3
 ```
 place output from above command in
@@ -26,15 +23,16 @@ place output from above command in
 sudo [output] setup.py install
 ```
 Or
-
-
 ```
 which pip
-```
-```
 sudo [output] install .
 ```
-
+Usage:
+```
+python
+>>> from readability.functions import *
+```
+```
 ### FAQ
 
 _Why is the abstract data from PubMed not available?_
