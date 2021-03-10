@@ -8,7 +8,7 @@ Article published in elife: https://elifesciences.org/articles/27725
 
 Code is written in Python and R.
 
-For python (3.x) is needed. Some changes will be needed for python (2.x).
+For python (3.x) is compatibility fixes may be needed. 
 
 ### FAQ
 
