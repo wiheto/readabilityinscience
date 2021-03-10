@@ -12,6 +12,11 @@ Code is written in Python and R.
 For python (3.x) is compatibility fixes may be needed. 
 
 
+[![Build Status](https://circleci.com/gh/russelljjarvis/readabilityinscience/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/github/russelljjarvis/readabilityinscience/)
+
+
+
+
 ### Installing and running the python code from the terminal
 ```
 git clone wiheto/readabilityinscience.git
@@ -32,7 +37,9 @@ Usage:
 python
 >>> from readability.functions import *
 ```
-```
+
+
+
 ### FAQ
 
 _Why is the abstract data from PubMed not available?_
