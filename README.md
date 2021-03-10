@@ -1,6 +1,6 @@
 
 
-### This code is associated with the paper from Plavén-Sigray et al., "Research: The readability of scientific texts is decreasing over time". eLife, 2017. http://dx.doi.org/10.7554/eLife.27725
+### [This code is associated with the paper from Plavén-Sigray et al., "Research: The readability of scientific texts is decreasing over time". eLife, 2017](http://dx.doi.org/10.7554/eLife.27725). 
 
 # readabilityinscience
 
