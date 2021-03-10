@@ -35,6 +35,9 @@ sudo [output] install .
 Usage:
 ```
 python
+
+>>> import nltk
+>>> nltk.download('cmudict')
 >>> from readability.functions import *
 ```
 
