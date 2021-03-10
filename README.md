@@ -12,7 +12,7 @@ Code is written in Python and R.
 For python (3.x) is compatibility fixes may be needed. 
 
 
-# Installing and running the python code from the terminal
+### Installing and running the python code from the terminal
 ```
 git clone wiheto/readabilityinscience.git
 cd readabilityinscience
