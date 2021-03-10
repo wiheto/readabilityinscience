@@ -16,8 +16,11 @@ jobs:
           command:  sudo pip install nltk; sudo python setup.py install;
 
       - run:
-          name: verify install
+          name: pre install
           command: python -c "import nltk; nltk.download('cmudict')";
+      - run:
+          name: verify install
+
           command: python -c "from readability.functions import *";
 
 workflows:
