@@ -17,8 +17,12 @@ jobs:
           command: echo 'export MY_ENV_VAR="CIRCLE"' >> $BASH_ENV
 
       - run:
-          name: more install
+          name: install
           command:  sudo pip install nltk; sudo python setup.py install;
+
+      - run:
+          name: verify install
+          command:  python -c "from readability.functions import *";
 
 workflows:
   main:
