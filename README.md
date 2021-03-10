@@ -19,7 +19,7 @@ For python (3.x) is compatibility fixes may be needed.
 
 ### Installing and running the python code from the terminal
 ```
-git clone wiheto/readabilityinscience.git
+git clone https://github.com/wiheto/readabilityinscience
 cd readabilityinscience
 which python3
 ```
