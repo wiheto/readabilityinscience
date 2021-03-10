@@ -1,3 +1,5 @@
+[![Build Status](https://circleci.com/gh/russelljjarvis/readabilityinscience/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/github/russelljjarvis/readabilityinscience/)
+
 
 
 
@@ -11,8 +13,6 @@ Code is written in Python and R.
 
 For python (3.x) is compatibility fixes may be needed. 
 
-
-[![Build Status](https://circleci.com/gh/russelljjarvis/readabilityinscience/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/github/russelljjarvis/readabilityinscience/)
 
 
 
