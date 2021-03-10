@@ -16,7 +16,7 @@ import re
 import time
 import pandas as pd
 import numpy as np
-import treetaggerwrapper
+#import treetaggerwrapper
 import functions.abstract_cleanup as qc
 import os
 from nltk.tag.perceptron import PerceptronTagger
@@ -247,7 +247,7 @@ def analyze(
     VARIABLES IN:
     - path: 'Path/To/Text/Files/eLife.json' (with filename!)
     - spath: 'Path/To/Save/Files/lang.json' (with filename!)
-    - tagger: = treetaggerwrapper.TreeTagger(TAGLANG='en')
+    - tagger: = NLTK.NLTK(TAGLANG='en')
     - textType: what text is called in the input json. 'body' or 'abstracttext'
     - columnList: Additional columns you want in the data. These should be in the input file. If, for some reason, you want the output to be different, add a <> between. E.g. pubdate_year*year will take "pubdate_year" from input json and export as p"year" in output json.
     - doPreprocessing: 1 for preprocessing. 0 for no preprocessing.
